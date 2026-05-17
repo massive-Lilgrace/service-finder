@@ -1,0 +1,116 @@
+/* Location: service-finder/app/globals.css */
+
+/* 1. Core Tailwind CSS v4 framework engine */
+@import "tailwindcss";
+
+/* 2. Centralized application design tokens */
+:root {
+  /* System Background states */
+  --background: #ffffff;
+  --foreground: #0f172a;
+  
+  /* Primary Identity Brand Colors (Matches your blue visual screens) */
+  --primary-blue: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  
+  /* Secondary Accent Details */
+  --accent-yellow: #f59e0b;
+  --accent-green: #10b981;
+  
+  /* Structural Boarders and Framework backgrounds */
+  --muted-gray: #f8fafc;
+  --border-slate: #e2e8f0;
+  
+  /* Typography Variables from your Next.js installation config */
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+}
+
+/* 3. Dark mode theme overrides (Using standard system-preference media matching) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a;
+    --foreground: #f8fafc;
+    --primary-blue: #3b82f6;
+    --primary-hover: #2563eb;
+    --primary-light: #1e293b;
+    --muted-gray: #1e293b;
+    --border-slate: #334155;
+  }
+}
+
+/* 4. Tailwind Engine Registration (Hooks variables natively into utility utility classes) */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  --color-primary: var(--primary-blue);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  
+  --color-rating: var(--accent-yellow);
+  --color-verified: var(--accent-green);
+  
+  --color-muted: var(--muted-gray);
+  --color-border: var(--border-slate);
+  
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* 5. Structural Core Element Layout Overrides */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+  }
+
+  /* Standardized input fields formatting matching your user profile configuration layouts */
+  input, select, textarea {
+    outline: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+}
+
+/* 6. High-density utility components design elements mapping */
+@layer utilities {
+  /* Curved structural visual framing container backgrounds matching your dashboard images */
+  .hero-circle-bg {
+    background: radial-gradient(circle at center, var(--primary-blue) 0%, #1d4ed8 100%);
+  }
+
+  /* Custom styled scrollbars for smooth content list-view reading windows */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: var(--border-slate);
+    border-radius: 9999px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #cbd5e1;
+  }
+}
